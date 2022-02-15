@@ -42,11 +42,12 @@ include_directories(BLE_LIB
                     USB_LIB
                     RVMSIS  
                     StdPeriphDriver/inc
+                    printf
                     src/inc
                     HAL/include)
 
 # 宏定义
-add_definitions(-DDEBUG=1 -DHAL_KEY=0)
+add_definitions(-DDEBUG=1)
 
 # 源码文件
 file(GLOB_RECURSE SOURCES 
@@ -54,6 +55,7 @@ file(GLOB_RECURSE SOURCES
                 "USB_LIB/*.c"
                 "RVMSIS/*.c"
                 "StdPeriphDriver/*.c" 
+                "printf/printf.c"
                 "src/*.c"
                 "HAL/*.c")
 

@@ -81,6 +81,7 @@
 #include "CH58x_usbdev.h"
 #include "CH58x_usbhost.h"
 #include "ISP583.h"
+#include "printf.h"
 
 
 #define DelayMs(x)      mDelaymS(x)

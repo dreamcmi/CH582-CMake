@@ -31,7 +31,7 @@ int main()
   SetSysClock(CLK_SOURCE_PLL_60MHz);
   DebugInit();
   printf("%s\n", VER_LIB);
-  CH57X_BLEInit();
+  CH58X_BLEInit();
   HAL_Init();
   GAPRole_BroadcasterInit();
   Broadcaster_Init();
