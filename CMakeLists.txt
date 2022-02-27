@@ -4,13 +4,29 @@ cmake_minimum_required(VERSION 3.20)
 
 # 工具链设置
 set(TOOLPATH  D:/0wch/toolchain/RISCVEmbeddedGCC/bin/riscv-none-embed-)
-set(CMAKE_C_COMPILER ${TOOLPATH}gcc.exe)
-set(CMAKE_CXX_COMPILER ${TOOLPATH}g++.exe)
-set(CMAKE_ASM_COMPILER  ${TOOLPATH}gcc.exe)
-set(CMAKE_AR ${TOOLPATH}ar.exe)
-set(CMAKE_OBJCOPY ${TOOLPATH}objcopy.exe)
-set(CMAKE_OBJDUMP ${TOOLPATH}objdump.exe)
-set(SIZE ${TOOLPATH}size.exe)
+
+if (WIN32)
+	MESSAGE(STATUS "Now is windows!")
+    set(CMAKE_C_COMPILER ${TOOLPATH}gcc.exe)
+    set(CMAKE_CXX_COMPILER ${TOOLPATH}g++.exe)
+    set(CMAKE_ASM_COMPILER ${TOOLPATH}gcc.exe)
+    set(CMAKE_AR ${TOOLPATH}ar.exe)
+    set(CMAKE_OBJCOPY ${TOOLPATH}objcopy.exe)
+    set(CMAKE_OBJDUMP ${TOOLPATH}objdump.exe)
+    set(SIZE ${TOOLPATH}size.exe)
+elseif (UNIX)
+	MESSAGE(STATUS "Now is UNIX-like OS!")
+    set(CMAKE_C_COMPILER ${TOOLPATH}gcc)
+    set(CMAKE_CXX_COMPILER ${TOOLPATH}g++)
+    set(CMAKE_ASM_COMPILER ${TOOLPATH}gcc)
+    set(CMAKE_AR ${TOOLPATH}ar)
+    set(CMAKE_OBJCOPY ${TOOLPATH}objcopy)
+    set(CMAKE_OBJDUMP ${TOOLPATH}objdump)
+    set(SIZE ${TOOLPATH}size)
+else ()
+    MESSAGE(STATUS "Unsupported system!")
+endif ()
+
 set(CMAKE_TRY_COMPILE_TARGET_TYPE STATIC_LIBRARY)
 
 # 项目设置
@@ -43,7 +59,7 @@ include_directories(BLE_LIB
                     RVMSIS  
                     StdPeriphDriver/inc
                     printf
-                    src/inc
+                    APP/inc
                     HAL/include)
 
 # 宏定义
@@ -56,7 +72,7 @@ file(GLOB_RECURSE SOURCES
                 "RVMSIS/*.c"
                 "StdPeriphDriver/*.c" 
                 "printf/printf.c"
-                "src/*.c"
+                "APP/*.c"
                 "HAL/*.c")
 
 # 链接参数
