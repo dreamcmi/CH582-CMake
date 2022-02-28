@@ -82,8 +82,7 @@ add_link_options(-nostartfiles
                 -Wl,--print-memory-usage
                 -Wl,-Map,${PROJECT_NAME}.map 
                 --specs=nano.specs 
-                --specs=nosys.specs 
-                -lprintfloat)
+                --specs=nosys.specs)
 add_link_options(-T ${LINKER_SCRIPT})
 
 # 编译可执行文件
