@@ -48,7 +48,7 @@ typedef union
 /*******************************************************************************
  * @fn          lwns_addr_cmp
  *
- * @brief       compare two address, return 1 if they are same.use lwns_memcmp ,the size is 6.
+ * @brief       compare two address，return 1 if they are same.use lwns_memcmp ,the size is 6.
  *
  * input parameters
  *
