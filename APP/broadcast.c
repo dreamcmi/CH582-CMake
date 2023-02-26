@@ -10,7 +10,7 @@
 /*********************************************************************
  * INCLUDES
  */
-#include "CONFIG.h"
+#include "config.h"
 #include "CH58x_common.h"
 #include "devinfoservice.h"
 #include "broadcaster.h"
