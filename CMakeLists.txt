@@ -36,11 +36,11 @@ set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_C_STANDARD 99)
 
 # 编译参数 一般不用改
-add_compile_options(-march=rv32imac -mabi=ilp32 -mcmodel=medany -msmall-data-limit=8 -mno-save-restore -std=gnu99)
+add_compile_options(-march=rv32imac -mabi=ilp32 -mcmodel=medany -msmall-data-limit=8 -mno-save-restore)
 add_compile_options(-fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -fno-common)
 
 # 编译等级
-add_compile_options(-O3)
+add_compile_options(-O2)
 
 # 编译信息等级
 add_compile_options(-Wall)
@@ -69,7 +69,9 @@ file(GLOB_RECURSE SOURCES
 
 # 链接参数
 set(LINKER_SCRIPT  ${CMAKE_SOURCE_DIR}/Ld/Link.ld)
-add_link_options(-nostartfiles 
+add_link_options(
+                -march=rv32imac -mabi=ilp32
+                -nostartfiles 
                 -Xlinker --gc-sections  
                 -Wl,--print-memory-usage
                 -Wl,-Map,${PROJECT_NAME}.map 
