@@ -42,7 +42,7 @@
 #define Debug_UART3        3
 
 #ifdef DEBUG
-#include <stdio.h>
+#include "printf.h"
 #endif
 
 /**
