@@ -4,8 +4,10 @@
  * Version            : V1.0.1
  * Date               : 2021/10/28
  * Description        : CH583 RISC-V Core Peripheral Access Layer Header File
+ *********************************************************************************
  * Copyright (c) 2021 Nanjing Qinheng Microelectronics Co., Ltd.
- * SPDX-License-Identifier: Apache-2.0
+ * Attention: This software (modified or not) and binary are used for 
+ * microcontroller manufactured by Nanjing Qinheng Microelectronics.
  *******************************************************************************/
 #ifndef __CORE_RV3A_H__
 #define __CORE_RV3A_H__
@@ -348,6 +350,7 @@ RV_STATIC_INLINE void PFIC_SystemReset(void)
 }
 
 #define SysTick_LOAD_RELOAD_Msk    (0xFFFFFFFFFFFFFFFF)
+#define SysTick_CTLR_SWIE          (1 << 31)
 #define SysTick_CTLR_INIT          (1 << 5)
 #define SysTick_CTLR_MODE          (1 << 4)
 #define SysTick_CTLR_STRE          (1 << 3)
